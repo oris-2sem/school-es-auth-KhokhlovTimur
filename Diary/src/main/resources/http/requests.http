@@ -1,0 +1,196 @@
+### 3 вида добавления (регистрации)
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "login": "login",
+  "password": "123",
+  "firstName": "Mike",
+  "lastName": "Mike",
+  "age": 14
+}
+
+###
+
+POST http://localhost:8080/teachers
+Content-Type: application/json
+
+{
+  "login" : "1",
+  "password" : "1",
+  "firstName": "Leo",
+  "lastName": "Smith",
+  "age": 40,
+  "experience": 10
+}
+
+###
+
+POST http://localhost:8080/parents
+Content-Type: application/json
+
+{
+  "login": "gin",
+  "password": "123"
+}
+
+### end
+
+###
+POST http://localhost:8080/auth/token
+Content-Type: application/x-www-form-urlencoded
+
+login=1&password=1
+
+###
+
+GET http://localhost:8080/students/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaW4iLCJyb2xlIjoiUEFSRU5UIiwiZXhwIjoxNjgyMTk2Nzg3fQ.dY8YqjxWhAZOhIAS9r_eIQhC1nip0-d1aUSpAXXKKMM
+
+
+###students-----
+
+###
+
+GET http://localhost:8080/students/1111
+
+###
+
+GET http://localhost:8080/students/2/tasks?page=0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IlRFQUNIRVIiLCJleHAiOjE2ODIxOTY2NjF9.EXGrlkqnMZqE_2veiF0NI6ugxPveeOqiLJsYuG1EMM8
+
+###
+
+###
+
+PUT http://localhost:8080/students/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaW4iLCJyb2xlIjoiUEFSRU5UIiwiZXhwIjoxNjgyMTk2Nzg3fQ.dY8YqjxWhAZOhIAS9r_eIQhC1nip0-d1aUSpAXXKKMM
+Content-Type: application/json
+
+{
+  "firstName": "first name",
+  "lastName": "new last name",
+  "age": 14,
+  "login": "sdaewd",
+  "groupId": 2
+}
+
+###
+
+DELETE http://localhost:8080/students/1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IlRFQUNIRVIiLCJleHAiOjE2ODIxNzkyNDV9.imNi_efKjtEav90lbvozBVP6YGS2O6KzvV7e06d89NU
+
+###tasks-----
+
+GET http://localhost:8080/tasks/1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsb2dpbm4iLCJyb2xlIjoiU1RVREVOVCIsImV4cCI6MTY4MjE5NjQ3MX0.iEt5uKYyyB_DuR9UqcRFa4uKgbIMmvd_8ZPdvTaWGro
+###
+
+POST http://localhost:8080/tasks
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsb2dpbm4iLCJyb2xlIjoiU1RVREVOVCIsImV4cCI6MTY4MjE5NjQ3MX0.iEt5uKYyyB_DuR9UqcRFa4uKgbIMmvd_8ZPdvTaWGro
+Content-Type: application/json
+
+{
+  "comment": "comment",
+  "description": "description",
+  "studentId": 2,
+  "lessonId": 1
+}
+
+###
+
+PUT http://localhost:8080/tasks/1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsb2dpbm4iLCJyb2xlIjoiU1RVREVOVCIsImV4cCI6MTY4MjE5NjQ3MX0.iEt5uKYyyB_DuR9UqcRFa4uKgbIMmvd_8ZPdvTaWGro
+Content-Type: application/json
+
+{
+  "comment": "new comment",
+  "description": "new description",
+  "studentId": 2,
+  "lessonId": 1,
+  "mark": "5"
+}
+
+###
+
+DELETE http://localhost:8080/tasks/1
+
+
+###lessons
+
+POST http://localhost:8080/lessons
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IlRFQUNIRVIiLCJleHAiOjE2ODIxOTc2NjJ9.9cOzckqwIbGKOrfKhvP6PWIiHmbLK_-QayWckguB_Eo
+Content-Type: application/json
+
+{
+  "subject": "Русский язык",
+  "theme": "Отдых"
+}
+
+###
+
+GET http://localhost:8080/lessons/3
+
+###
+
+GET http://localhost:8080/lessons/1/timetable?page=0
+
+
+###groups
+
+POST http://localhost:8080/groups
+Content-Type: application/json
+
+{
+  "dateOfAdmission": "2023-04-20",
+  "letter": "Q",
+  "teacherId": 1
+}
+
+###
+
+GET http://localhost:8080/groups/1
+
+
+###
+POST http://localhost:8080/groups/1/students/4
+
+###
+GET http://localhost:8080/groups/1/students
+
+
+###teachers
+
+
+
+###
+
+GET http://localhost:8080/teachers/15
+
+###timetable
+
+GET http://localhost:8080/timetable?page=0
+
+###
+POST http://localhost:8080/timetable
+Content-Type: application/json
+
+{
+  "startTime": "10:10:00",
+  "room": 212,
+  "groupId": 2,
+  "teacherId": 1,
+  "lessonId": 1
+}
+
+
+###parents
+
+###
+
+POST http://localhost:8080/parents/1/students/1
+
+###
+GET http://localhost:8080/parents/1/students
+
+
